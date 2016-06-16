@@ -3,28 +3,32 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET         /                    controllers.HomeController.index
+GET         /                      controllers.HomeController.index
 
-GET         /login               controllers.HomeController.login
+GET         /login                 controllers.HomeController.login
 
-POST        /login               controllers.HomeController.loginAction
+POST        /login                 controllers.HomeController.loginAction
 
 # nick sex age 作为参数传入
-POST        /user/add            controllers.HomeController.addUser(nick:String,sex:String,age:Integer)
+POST        /user/add              controllers.HomeController.addUser(nick:String,sex:String,age:Integer)
 
 # 查看所有的user
-GET         /user/all            controllers.HomeController.findAll()
+GET         /user/all              controllers.HomeController.findAll()
 
 # 可以解析 http://127.0.0.1:9090/user/2
-GET         /user/:id            controllers.HomeController.findById(id:Long)
+#GET         /user/:id                                        controllers.HomeController.findById(id:Long)
+
+# 用-解析多个参数 下面路由可以解析 http://127.0.0.1:9090/user/d-5,nick为d,id为5 默认curPage = 0,pageSize = 10
+# http://127.0.0.1:9090/user/a-5?curPage=0&pageSize=1 也可以手动输入curPage pageSize
+GET         /user/:nick-:id        controllers.HomeController.findByNick(nick:String,id:Long,curPage:Integer ?= 0,pageSize:Integer ?=10)
 
 # 可以解析 http://127.0.0.1:9090/user?id=3,当不传id的值时,id默认为1
-GET         /user                controllers.HomeController.findById(id: Long ?= 1L)
+GET         /user                  controllers.HomeController.findById(id: Long ?= 1L)
 
 # An example controller showing how to use dependency injection
-GET         /count               controllers.CountController.count
+GET         /count                 controllers.CountController.count
 # An example controller showing how to write asynchronous code
-GET         /message             controllers.AsyncController.message
+GET         /message               controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)

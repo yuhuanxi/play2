@@ -1,6 +1,8 @@
 package controllers;
 
+import com.avaje.ebean.ExpressionList;
 import models.User;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import play.libs.Json;
@@ -60,6 +62,18 @@ public class HomeController extends Controller {
 
     public Result findAll() {
         List<User> users = User.finder.all();
+        return ok(Json.toJson(users));
+    }
+
+    public Result findByNick(String nick, Long id, Integer curPage, Integer pageSize) {
+        ExpressionList<User> where = User.finder.where();
+        if (StringUtils.isNotBlank(nick)) {
+            where.ilike("nick", "%" + nick + "%");
+        }
+        List<User> users = where
+                .orderBy("id desc")
+                .findPagedList(curPage, pageSize)
+                .getList();
         return ok(Json.toJson(users));
     }
 
