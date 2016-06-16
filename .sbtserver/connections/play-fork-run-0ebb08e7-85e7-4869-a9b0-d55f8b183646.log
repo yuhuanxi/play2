@@ -1,0 +1,20 @@
+New log file opened at Thu Jun 16 10:34:59 CST 2016 by 3424@localhost
+Sending msg to client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: /Users/yuhuanxi/play-java/.sbtserver/connections/master.log))
+Sending msg to client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646: DetachedLogEvent(LogMessage(debug,sbt client logs are in: /Users/yuhuanxi/play-java/.sbtserver/connections/play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646.log))
+Sending msg to client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: /Users/yuhuanxi/play-java/.sbtserver/master.log))
+Reading next message from client.
+Got request: DaemonRequest(true)
+Reading next message from client.
+Sending msg to client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646: (3,ReceivedResponse())
+Got request: ListenToEvents()
+Reading next message from client.
+Sending msg to client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646: (4,ReceivedResponse())
+Got request: KeyLookupRequest(root/playForkConfig)
+Reading next message from client.
+Got request: UnlistenToEvents()
+Reading next message from client.
+Sending msg to client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646: (6,ReceivedResponse())
+Client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646 EOF, shutting down.
+Stopping client.
+Dropping message (0,ReceivedResponse()) to dead client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646
+Client play-fork-run-0ebb08e7-85e7-4869-a9b0-d55f8b183646 thread exiting.

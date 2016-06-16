@@ -1,0 +1,34 @@
+@*
+* This template takes a single argument, a String containing a
+* message to display.
+*@
+@(message: String)
+@*
+* Call the `main` template with two arguments. The first
+* argument is a `String` with the title of the page, the second
+* argument is an `Html` object containing the body of the page.
+*@
+@main("Welcome to Play") {
+
+    <h1>@message</h1>
+
+    <form action="/login" method="POST" >
+        username:<input type="text" name="username">
+        password:<input type="password" name="password">
+        <input type="submit" value="submit">
+    </form>
+
+    @helper.form(action = routes.HomeController.loginAction()) {
+        username:<input type="text" name="username">
+        password:<input type="password" name="password">
+        <input type="submit" value="submit">
+    }
+    @*
+    * Get an `Html` object by calling the built-in Play welcome
+    * template and passing a `String` message.
+    *@
+
+    @*
+    *play20.welcome(message, style = "Java")
+    *@
+}
