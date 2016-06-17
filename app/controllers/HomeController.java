@@ -77,4 +77,7 @@ public class HomeController extends Controller {
         return ok(Json.toJson(users));
     }
 
+    public Result toHtml() {
+        return ok("<h1><font color = 'red'>Hello World</font></h1>").as("text/html");
+    }
 }

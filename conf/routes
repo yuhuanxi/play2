@@ -7,6 +7,9 @@ GET         /                      controllers.HomeController.index
 
 GET         /login                 controllers.HomeController.login
 
+# 自定义返回的 Content-Type
+GET         /toHtml                controllers.HomeController.toHtml
+
 POST        /login                 controllers.HomeController.loginAction
 
 # nick sex age 作为参数传入
