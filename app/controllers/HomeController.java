@@ -63,7 +63,7 @@ public class HomeController extends Controller {
         return ok("Data not found!");
     }
 
-    @Security.Authenticated
+    @Security.Authenticated(TestAuthenticator.class)
     public Result findAll() {
         List<User> users = User.finder.all();
         return ok(Json.toJson(users));
