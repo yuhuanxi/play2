@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import play.libs.Json;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import views.html.index;
 import views.html.login;
@@ -78,6 +79,11 @@ public class HomeController extends Controller {
     }
 
     public Result toHtml() {
+        // play2设置cookie的方法
+        Http.Cookie cookie = Http.Cookie.builder("theme", "blue").build();
+        Http.Cookie hello = Http.Cookie.builder("hello", "123").withMaxAge(10).build();
+        response().setCookie(cookie);
+        response().setCookie(hello);
         return ok("<h1><font color = 'red'>Hello World</font></h1>").as("text/html");
     }
 }
