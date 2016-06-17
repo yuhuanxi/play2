@@ -10,6 +10,18 @@ GET         /login                 controllers.HomeController.login
 # 自定义返回的 Content-Type
 GET         /toHtml                controllers.HomeController.toHtml
 
+# 设置session
+GET         /ss                    controllers.HomeController.setSession
+
+# 获取session
+GET         /gs                    controllers.HomeController.getSession()
+
+# play2注解,如果为true,则会打印日志
+GET         /vai                   controllers.HomeController.verboseAnnotationIndex(ctx:String)
+
+# 使用授权验证
+GET         /ta                    controllers.HomeController.testAuthenticated()
+
 POST        /login                 controllers.HomeController.loginAction
 
 # nick sex age 作为参数传入
