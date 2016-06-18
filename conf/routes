@@ -25,7 +25,7 @@ GET         /ta                    controllers.HomeController.testAuthenticated(
 POST        /login                 controllers.HomeController.loginAction
 
 # nick sex age 作为参数传入
-POST        /user/add              controllers.HomeController.addUser(nick:String,sex:String,age:Integer)
+POST        /user/add              controllers.HomeController.addUser(uid:Long,nick:String,sex:String,age:Integer)
 
 # 查看所有的user
 GET         /user/all              controllers.HomeController.findAll()

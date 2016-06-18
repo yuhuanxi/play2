@@ -1,5 +1,6 @@
 package controllers;
 
+import auth.AdminAuthenticator;
 import com.avaje.ebean.ExpressionList;
 import models.User;
 import org.apache.commons.lang3.StringUtils;
@@ -22,6 +23,7 @@ import java.util.List;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
+
 public class HomeController extends Controller {
 
     private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
@@ -45,7 +47,8 @@ public class HomeController extends Controller {
         return ok(loginAction.render("login success!"));
     }
 
-    public Result addUser(String nick, String sex, Integer age) {
+    @Security.Authenticated(AdminAuthenticator.class)
+    public Result addUser(Long uid, String nick, String sex, Integer age) {
         User user = new User();
         user.nick = nick;
         user.sex = sex;
@@ -63,7 +66,6 @@ public class HomeController extends Controller {
         return ok("Data not found!");
     }
 
-    @Security.Authenticated(TestAuthenticator.class)
     public Result findAll() {
         List<User> users = User.finder.all();
         return ok(Json.toJson(users));
